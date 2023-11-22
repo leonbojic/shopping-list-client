@@ -1,0 +1,44 @@
+.green {
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  padding: 4px 16px;
+
+  border: none;
+  border-radius: 2px;
+  color: white;
+
+  font-size: 14px;
+
+  background-color: green;
+}
+
+.green:hover {
+  background-color: rgb(0, 108, 0);
+  cursor: pointer;
+}
+
+.green:active {
+  background-color: rgb(0, 88, 0);
+}
+
+
+.transparent {
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+
+  background-color: transparent;
+  color: lightblue;
+
+  font-size: 12px;
+  padding: 0px;
+  
+  border: none;
+  outline: none;
+}
+
+.transparent:hover {
+  cursor: pointer;
+  color: white;
+}
