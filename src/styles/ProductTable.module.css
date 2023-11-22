@@ -23,3 +23,9 @@ td {
   border: 1px solid black; 
   text-align: center;
 }
+
+td input{
+  border: none;
+  padding: none;
+  margin: none;
+}

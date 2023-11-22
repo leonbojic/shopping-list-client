@@ -11,8 +11,8 @@ const ProductTable = () => {
       <thead>
         <tr>
           <th className={styles.nameCell}>Name</th>
-          <th>Amount</th>
           <th>Price</th>
+          <th>Amount</th>
           <th>Total</th>
         </tr>
       </thead>

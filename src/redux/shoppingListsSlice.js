@@ -15,7 +15,6 @@ const shoppingListsSlice = createSlice({
         name: list.name,
         timeBought: list.timeBought,
         links: list._links,
-        products: {}
       }
     },
     removeShoppingList(state, action) {
