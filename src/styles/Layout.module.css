@@ -6,13 +6,16 @@
   margin-right: auto;
 
   gap: 2px;
-  width: 1000px;
+  width: 1100px;
   height: 100vh;
 }
 
 .sidebar {
   flex: 1 0 20%;
   background-color: blanchedalmond;
+
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .body {

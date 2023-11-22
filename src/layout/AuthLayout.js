@@ -1,16 +1,23 @@
 import AuthForm from "components/authForm/AuthForm";
 import { useAuthContext } from "context/AuthContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "styles/Auth.module.css";
 import buttonStyles from "styles/Button.module.css";
 import { login, register } from "util/api";
 
 
 const AuthLayout = () => {
-  const { setIsAuthenticated } = useAuthContext();
+  const navigate = useNavigate();
+  const { isAuthenticated, setIsAuthenticated } = useAuthContext();
+
   const [showLogin, setShowLogin] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    isAuthenticated && navigate("/list");
+  }, [isAuthenticated])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,7 +28,6 @@ const AuthLayout = () => {
         : register(username, password, setShowLogin);
     }
   }
-
 
   return (
     <div className={styles.layout}>

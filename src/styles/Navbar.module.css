@@ -1,0 +1,27 @@
+.navbar{ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 40px 0px 160px;
+}
+
+.shoppingList{
+  list-style-type: none;
+  
+  width: 20ch;
+  padding: 4px 8px;
+
+  background-color: white;
+  border: 1px solid black;
+}
+
+.shoppingList:hover{
+  cursor: pointer;
+}
+
+.shoppingList:active{
+  background-color: antiquewhite;
+}
