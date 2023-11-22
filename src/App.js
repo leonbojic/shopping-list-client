@@ -1,3 +1,4 @@
+import ProtectedLayout from 'layout/ProtectedLayout';
 import './App.css';
 import AuthLayout from 'layout/AuthLayout';
 
@@ -5,7 +6,7 @@ import AuthLayout from 'layout/AuthLayout';
 function App() {
   return (
     <div className="App">
-      <AuthLayout/>
+      <ProtectedLayout/>
     </div>
   );
 }
