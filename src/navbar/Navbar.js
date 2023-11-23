@@ -27,14 +27,6 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <h4>Shopping lists:</h4>
 
-      <BigIconButton
-        icon={plusIcon}
-        handleClick={(event) => {
-          event.preventDefault();
-          navigate("/list")
-        }}
-      />
-
       {Object.values(lists)?.map((shoppingList) => (
         <li key={shoppingList.id}
           className={styles.shoppingList}
@@ -42,6 +34,15 @@ const Navbar = () => {
           {shoppingList.name}
         </li>
       ))}
+
+
+      <BigIconButton
+        icon={plusIcon}
+        handleClick={(event) => {
+          event.preventDefault();
+          navigate("/list")
+        }}
+      />
     </nav>
   )
 }
