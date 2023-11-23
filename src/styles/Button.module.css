@@ -42,3 +42,16 @@
   cursor: pointer;
   color: white;
 }
+
+
+.bigIconSquare{
+  width: 48px;
+  height: 48px;
+
+  border-radius: 15%;
+}
+
+.bigIconSquare:hover{
+  cursor: pointer;
+  background-color: white;
+}

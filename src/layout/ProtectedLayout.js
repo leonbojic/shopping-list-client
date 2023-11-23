@@ -1,3 +1,4 @@
+import SignOutButton from "components/buttons/SignOutButton";
 import Navbar from "components/navbar/Navbar";
 import { useAuthContext } from "context/AuthContext";
 import { useEffect } from "react";
@@ -16,6 +17,9 @@ const ProtectedLayout = ({ children }) => {
   return (
     <div className={styles.layout}>
       <div className={styles.sidebar}>
+        <div className={styles.buttons}>
+          <SignOutButton />
+        </div>
         <Navbar />
       </div>
 

@@ -18,6 +18,11 @@
   overflow-y: scroll;
 }
 
+.buttons{
+  margin: 20px auto 20px 14px;
+}
+
+
 .body {
   flex: 1 0 80%;
 

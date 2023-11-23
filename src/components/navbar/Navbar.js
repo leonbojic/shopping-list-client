@@ -1,12 +1,12 @@
 import axios from "axios";
+import CreateShoppingListButton from "components/buttons/CreateShoppingListButton";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setCreateList } from "redux/linksSlice";
+import { setShoppingList } from "redux/shoppingListsSlice";
 import styles from "styles/Navbar.module.css";
 import { getAuthConfig } from "util/token";
-import NavbarShoppingList from "./NavbarShoppingList";
-import { setShoppingList } from "redux/shoppingListsSlice";
-import { setCreateList } from "redux/linksSlice";
-import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -34,15 +34,20 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <h4>Shopping lists:</h4>
-      <button onClick={(event) => {
-        event.preventDefault();
-        navigate("/list")
-      }}>
-        Create
-      </button>
 
-      {Object.values(lists)?.map((sl, index) => (
-        <NavbarShoppingList key={"ShoppingList:" + index} shoppingList={sl} />
+      <CreateShoppingListButton 
+        handleClick={(event) => {
+          event.preventDefault();
+          navigate("/list")
+        }}
+      />
+
+      {Object.values(lists)?.map((shoppingList) => (
+        <li key={shoppingList.id}
+          className={styles.shoppingList}
+          onClick={() => navigate(`/list/${shoppingList.id}`)}>
+          {shoppingList.name}
+        </li>
       ))}
     </nav>
   )
