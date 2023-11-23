@@ -1,5 +1,5 @@
 import axios from "axios";
-import { storeToken } from "./token";
+import { getAuthConfig, storeToken } from "./token";
 
 
 export const login = async (username, password, setIsAuthenticated) => {
@@ -18,6 +18,41 @@ export const register = async (username, password, setShowLogin) => {
     const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/auth/register`, { username, password });
     console.log(response.data)
     setShowLogin(true);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const fetchRequest = async (url) => {
+  try {
+    const response = await axios.get(url, getAuthConfig());
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const createRequest = async (url, body) => {
+  try {
+    const response = await axios.post(url, body, getAuthConfig());
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const updateRequest = async (url, body) => {
+  try {
+    const response = await axios.put(url, body, getAuthConfig());
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const deleteRequest = async (url) => {
+  try {
+    await axios.delete(url, getAuthConfig());
   } catch (error) {
     console.error(error);
   }

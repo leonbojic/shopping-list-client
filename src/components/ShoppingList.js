@@ -1,10 +1,9 @@
-import axios from "axios";
-import ProductTable from "components/productTable/ProductTable";
+import ProductTable from "components/ProductTable";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styles from "styles/ShoppingList.module.css";
-import { getAuthConfig } from "util/token";
+import { fetchRequest } from "util/api";
 
 
 const ShoppingList = () => {
@@ -21,18 +20,7 @@ const ShoppingList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async (url) => {
-      try {
-        const response = await axios.get(url, getAuthConfig());
-
-        const data = response.data?._embedded?.productOutputList;
-        data && setProducts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    shoppingList?.links?.products?.href && fetchProducts(shoppingList.links.products.href);
+    shoppingList?.links?.products?.href && fetchRequest(shoppingList.links.products.href);
   }, [shoppingList])
 
 

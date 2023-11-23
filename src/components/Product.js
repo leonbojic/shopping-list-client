@@ -1,6 +1,6 @@
 import editIcon from "assets/editIcon.png";
-import SmallIconButton from "components/buttons/SmallIconButton";
-import EditProductRow from "components/productRow/EditProductRow";
+import SmallIconButton from "buttons/SmallIconButton";
+import EditProductRow from "components/EditProductRow";
 import { useState } from "react";
 import styles from "styles/ProductTable.module.css";
 

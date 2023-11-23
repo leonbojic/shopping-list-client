@@ -1,9 +1,9 @@
-import ProductTable from "components/productTable/ProductTable";
+import ProductTable from "components/ProductTable";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setShoppingList } from "redux/shoppingListsSlice";
 import listStyles from "styles/ShoppingList.module.css";
-import { createShoppingList, fetchShoppingList } from "util/shoppingList";
+import { createRequest, fetchRequest } from "util/api";
 
 
 const ShoppingListForm = () => {
@@ -15,11 +15,11 @@ const ShoppingListForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    createShoppingList(
+    createRequest(
       createUrl,
       { name: name, products} 
     ).then((newListUrl) =>
-      fetchShoppingList(newListUrl)).then((newList) => dispatch(setShoppingList(newList)));
+      fetchRequest(newListUrl)).then((newList) => dispatch(setShoppingList(newList)));
   };
 
   return (
@@ -31,7 +31,6 @@ const ShoppingListForm = () => {
       <button onClick={handleSubmit}>Create</button>
     </form>
   )
-
 }
 
 export default ShoppingListForm;

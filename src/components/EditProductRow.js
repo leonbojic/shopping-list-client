@@ -1,8 +1,8 @@
-import SmallIconButton from "components/buttons/SmallIconButton";
-import { useState } from "react";
-import checkIcon from "assets/checkIcon.png";
-import removeIcon from "assets/cancelIcon.png";
 import cancelIcon from "assets/cancelEditIcon.png";
+import removeIcon from "assets/cancelIcon.png";
+import checkIcon from "assets/checkIcon.png";
+import SmallIconButton from "buttons/SmallIconButton";
+import { useState } from "react";
 
 
 const EditProductRow = ({ setProduct, removeProduct, product, cancelEdit }) => {
@@ -11,7 +11,7 @@ const EditProductRow = ({ setProduct, removeProduct, product, cancelEdit }) => {
   const [amount, setAmount] = useState(product?.amount ?? 1);
   const [price, setPrice] = useState(product?.price ?? 0);
 
-  
+
   return (
     <tr>
       <td>

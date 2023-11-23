@@ -5,8 +5,8 @@ import { useAuthContext } from 'context/AuthContext';
 import { useEffect } from 'react';
 import { getToken } from 'util/token';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import ShoppingListForm from 'components/shoppingListForm/ShoppingListForm';
-import ShoppingList from 'components/shoppingList/ShoppingList';
+import ShoppingListForm from 'forms/ShoppingListForm';
+import ShoppingList from 'components/ShoppingList';
 
 
 function App() {
