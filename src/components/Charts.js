@@ -1,7 +1,7 @@
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useEffect, useState } from "react";
-import { Bar, Pie } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import styles from "styles/Chart.module.css";
 
 
@@ -27,24 +27,19 @@ const Charts = ({ expenses }) => {
             "rgb(60, 179, 113) ",
           ],
           borderColor: "black",
-          borderWidth: 2
+          borderWidth: 2,
         }
       ]
     })
-
   }, [expenses])
 
 
   if (chartData) {
     return (
       <div className={styles.charts}>
-        <div className={styles.chartWrapper}>
-          <Pie className={styles.chart} data={chartData} />
-        </div>
-
-        <div className={styles.chartWrapper}>
-          <Bar className={styles.chart} data={chartData} />
-        </div>
+        <Pie
+          data={chartData}
+        />
       </div>
     );
   }

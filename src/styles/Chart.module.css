@@ -1,13 +1,8 @@
 
 
 .charts{
+  margin-top: 30px;
   display: flex;
-  
+  flex-direction: column;
+  gap: 80px;
 }
-
-.chartWrapper{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-}
-

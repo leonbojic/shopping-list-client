@@ -3,17 +3,29 @@ import removeIcon from "assets/cancelIcon.png";
 import checkIcon from "assets/checkIcon.png";
 import SmallIconButton from "buttons/SmallIconButton";
 import { useState } from "react";
+import styles from "styles/ProductTable.module.css";
 
 
 const EditProductRow = ({ setProduct, removeProduct, product, cancelEdit }) => {
   const [name, setName] = useState(product?.name ?? "");
   const [category, setCategory] = useState(product?.category ?? "OTHER");
   const [amount, setAmount] = useState(product?.amount ?? 1);
-  const [price, setPrice] = useState(product?.price ?? 0);
+  const [price, setPrice] = useState(product?.price ?? 100);
 
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      setProduct({ name: name, price: price, amount: amount, category: category });
+      cancelEdit && cancelEdit();
+      setName("");
+      setPrice(100);
+      setAmount(1);
+    }
+  };
 
   return (
-    <tr>
+    <tr onKeyDown={handleKeyDown}>
       <td>
         <input
           type="text"
@@ -21,7 +33,7 @@ const EditProductRow = ({ setProduct, removeProduct, product, cancelEdit }) => {
           onChange={(event) => setName(event.target.value)}
         />
       </td>
-      <td>
+      <td width={{minWidth:"160px"}}>
         <select
           value={category}
           onChange={(event) => setCategory(event.target.value)}
@@ -57,13 +69,13 @@ const EditProductRow = ({ setProduct, removeProduct, product, cancelEdit }) => {
       </td>
       <td>{(amount * price / 100).toFixed(2)} $</td>
 
-      <td>
+      <td className={styles.buttons}>
         <SmallIconButton
           handleClick={() => {
             setProduct({ name: name, price: price, amount: amount, category: category });
             cancelEdit && cancelEdit();
             setName("");
-            setPrice(0);
+            setPrice(100);
             setAmount(1);
           }}
           icon={checkIcon}

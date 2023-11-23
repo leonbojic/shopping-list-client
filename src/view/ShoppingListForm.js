@@ -41,11 +41,11 @@ const ShoppingListForm = () => {
 
         <button onClick={handleSubmit}>Create</button>
       </form>
-      
+
       <div className={styles.totalExpense}>
-        Total Cost: {totalExpense}
+        Total Cost: {(totalExpense / 100).toFixed(2)}$
       </div>
-      
+
       {
         totalExpense > 0 &&
         < Charts

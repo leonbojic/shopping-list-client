@@ -20,12 +20,12 @@ const ProductRow = ({ product, handleUpdate, handleRemove }) => {
   } else {
     return (
       <tr>
-        <td className={styles.nameCell}>{product.name}</td>
+        <td>{product.name}</td>
         <td>{product.category}</td>
         <td>{(product.price / 100).toFixed(2)} $</td>
         <td>{product.amount}</td>
         <td>{(product.amount * product.price / 100).toFixed(2)} $</td>
-        <td><SmallIconButton icon={editIcon} handleClick={() => setShowEdit(true)} /></td>
+        <td className={styles.buttons}><SmallIconButton icon={editIcon} handleClick={() => setShowEdit(true)} /></td>
       </tr>
     )
   }

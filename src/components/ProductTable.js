@@ -1,7 +1,7 @@
 import EditProductRow from "components/EditProductRow";
 import ProductRow from "components/ProductRow";
 import styles from "styles/ProductTable.module.css";
-import { postRequest, deleteRequest, getRequest, putRequest } from "util/api";
+import { deleteRequest, getRequest, postRequest, putRequest } from "util/api";
 
 
 const ProductTable = ({ products, setProducts, createProductUrl }) => {
@@ -35,10 +35,10 @@ const ProductTable = ({ products, setProducts, createProductUrl }) => {
   }
 
   const handleUpdateProduct = (index, product, url) => {
-    const updateProductByIndex = (updatedProduct) => {
+    const updateProductByIndex = (newProduct) => {
       setProducts((prev) => {
         const updatedProducts = [...prev];
-        updatedProducts[index] = product;
+        updatedProducts[index] = newProduct;
 
         return updatedProducts;
       })
@@ -59,6 +59,7 @@ const ProductTable = ({ products, setProducts, createProductUrl }) => {
           <th>Price</th>
           <th>Amount</th>
           <th>Total</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

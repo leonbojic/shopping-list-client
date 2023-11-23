@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styles from "styles/Page.module.css";
 import { deleteRequest, getRequest, putRequest } from "util/api";
 import { useExpenses } from "util/hooks";
-import Charts from "./Charts";
+import Charts from "../components/Charts";
 import SmallIconButton from "buttons/SmallIconButton";
 import editIcon from "assets/editIcon.png";
 import cancelEditIcon from "assets/cancelEditIcon.png";
@@ -84,11 +84,9 @@ const ShoppingList = () => {
       <ProductTable products={products} setProducts={setProducts} createProductUrl={shoppingList?.links?.addProduct?.href} />
 
       <div className={styles.totalExpense}>
-        Total Cost: {totalExpense}
+        Total Cost: {(totalExpense / 100).toFixed(2)}$
       </div>
-
-      {
-        totalExpense > 0 &&
+      {totalExpense > 0 &&
         < Charts
           expenses={expenses}
         />
