@@ -7,6 +7,7 @@ import { getToken } from 'util/token';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ShoppingListForm from 'forms/ShoppingListForm';
 import ShoppingList from 'components/ShoppingList';
+import Analytics from 'view/Analytics';
 
 
 function App() {
@@ -23,9 +24,16 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="" element={<AuthLayout />} />
-        <Route path="/list" element={<ProtectedLayout><ShoppingListForm /></ProtectedLayout>} />
-        <Route path="/list/:listId" element={<ProtectedLayout><ShoppingList /></ProtectedLayout>} />
+
+        <Route path="/auth" element={<AuthLayout />} />
+
+        <Route path="" element={<ProtectedLayout />}>
+          <Route path="list" element={<ShoppingListForm />} />
+          <Route path="list/:listId" element={<ShoppingList />} />
+
+          <Route path="stats/:year/:month" element={<Analytics />} />
+        </Route>
+
       </Routes>
     </Router>
   );

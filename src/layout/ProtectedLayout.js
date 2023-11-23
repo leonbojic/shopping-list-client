@@ -6,14 +6,14 @@ import styles from "styles/Layout.module.css";
 import BigIconButton from "buttons/BigIconButton";
 import { removeToken } from "util/token";
 import leaveIcon from "assets/leaveIcon.png";
-
+import { Outlet } from "react-router-dom";
 
 const ProtectedLayout = ({ children }) => {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthContext();
 
   useEffect(() => {
-    isAuthenticated === false && navigate("/")
+    isAuthenticated === false && navigate("/auth")
   }, [isAuthenticated])
 
   return (
@@ -31,7 +31,7 @@ const ProtectedLayout = ({ children }) => {
       </div>
 
       <div className={styles.body}>
-        {children}
+        <Outlet/>
       </div>
     </div>
   )
