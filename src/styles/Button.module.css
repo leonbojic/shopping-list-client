@@ -33,7 +33,7 @@
 
   font-size: 12px;
   padding: 0px;
-  
+
   border: none;
   outline: none;
 }
@@ -44,14 +44,26 @@
 }
 
 
-.bigIconSquare{
+.bigIconSquare {
   width: 48px;
   height: 48px;
 
   border-radius: 15%;
 }
 
-.bigIconSquare:hover{
+.bigIconSquare:hover {
   cursor: pointer;
   background-color: white;
+}
+
+.smallIcon {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 15%;
+}
+
+.smallIcon:hover{
+  cursor: pointer;
+  background-color: beige;
 }

@@ -40,8 +40,7 @@ const ShoppingList = () => {
     <div className={styles.shoppingList}>
       <h4>{shoppingList?.name}</h4>
 
-      <ProductTable products={products} />
-
+      <ProductTable products={products} setProducts={setProducts} createProductUrl={shoppingList?.links?.addProduct?.href} />
     </div>
   )
 }
