@@ -23,7 +23,7 @@ export const register = async (username, password, setShowLogin) => {
   }
 }
 
-export const fetchRequest = async (url) => {
+export const getRequest = async (url) => {
   try {
     const response = await axios.get(url, getAuthConfig());
     return response.data;
@@ -32,7 +32,7 @@ export const fetchRequest = async (url) => {
   }
 }
 
-export const createRequest = async (url, body) => {
+export const postRequest = async (url, body) => {
   try {
     const response = await axios.post(url, body, getAuthConfig());
     return response.data;
@@ -41,7 +41,7 @@ export const createRequest = async (url, body) => {
   }
 }
 
-export const updateRequest = async (url, body) => {
+export const putRequest = async (url, body) => {
   try {
     const response = await axios.put(url, body, getAuthConfig());
     return response.data;

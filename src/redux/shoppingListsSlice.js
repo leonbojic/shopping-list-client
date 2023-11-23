@@ -18,7 +18,7 @@ const shoppingListsSlice = createSlice({
       }
     },
     removeShoppingList(state, action) {
-      const id = action.payload.id;
+      const id = action.payload;
 
       if (state[id]) {
         delete state[id];

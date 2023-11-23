@@ -1,7 +1,7 @@
 import EditProductRow from "components/EditProductRow";
 import ProductRow from "components/ProductRow";
 import styles from "styles/ProductTable.module.css";
-import { createRequest, deleteRequest, fetchRequest, updateRequest } from "util/api";
+import { postRequest, deleteRequest, getRequest, putRequest } from "util/api";
 
 
 const ProductTable = ({ products, setProducts, createProductUrl }) => {
@@ -27,8 +27,8 @@ const ProductTable = ({ products, setProducts, createProductUrl }) => {
     }
 
     if (createProductUrl) {
-      createRequest(createProductUrl, product).then((createdProductUrl) =>
-        fetchRequest(createdProductUrl).then((createdProduct) => addProduct(createdProduct)))
+      postRequest(createProductUrl, product).then((createdProductUrl) =>
+        getRequest(createdProductUrl).then((createdProduct) => addProduct(createdProduct)))
     } else {
       addProduct(product);
     }
@@ -45,7 +45,7 @@ const ProductTable = ({ products, setProducts, createProductUrl }) => {
     }
 
     if (url) {
-      updateRequest(url, product).then((updatedProduct) =>
+      putRequest(url, product).then((updatedProduct) =>
         updateProductByIndex(updatedProduct));
     }
   }

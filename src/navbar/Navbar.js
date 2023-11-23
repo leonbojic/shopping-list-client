@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { setCreateList } from "redux/linksSlice";
 import { setShoppingList } from "redux/shoppingListsSlice";
 import styles from "styles/Navbar.module.css";
-import { fetchRequest } from "util/api";
+import { getRequest } from "util/api";
 import { useSorted } from "util/hooks";
 import React from "react";
 import pieIcon from "assets/pieIcon.png";
@@ -20,7 +20,7 @@ const Navbar = () => {
   const sortedLists = useSorted(lists);
 
   useEffect(() => {
-    fetchRequest(`${process.env.REACT_APP_SERVER_URL}/api/list`).then((data) => {
+    getRequest(`${process.env.REACT_APP_SERVER_URL}/api/list`).then((data) => {
 
       dispatch(setCreateList(data?._links?.create?.href));
       data?._embedded?.shoppingListOutputList?.forEach((list) => dispatch(setShoppingList(list)))
@@ -56,9 +56,9 @@ const Navbar = () => {
           <React.Fragment key={index}>
             {renderStats &&
               <div className={styles.stats} >
-                {getMonth(lastDate.getMonth() + 1)}/{lastDate.getFullYear()}
+                {getMonth(date.getMonth() + 1)}/{date.getFullYear()}
                 < BigIconButton
-                  handleClick={() => navigate(`/stats/${lastDate.getFullYear()}/${lastDate.getMonth() + 1}`)}
+                  handleClick={() => navigate(`/stats/${date.getFullYear()}/${date.getMonth() + 1}`)}
                   icon={pieIcon}
                 />
               </div>

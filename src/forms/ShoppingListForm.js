@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setShoppingList } from "redux/shoppingListsSlice";
 import styles from "styles/Page.module.css";
-import { createRequest, fetchRequest } from "util/api";
+import { postRequest, getRequest } from "util/api";
 import { useExpenses } from "util/hooks";
 
 
@@ -21,11 +21,11 @@ const ShoppingListForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    createRequest(
+    postRequest(
       createUrl,
       { name: name, products }
     ).then((newListUrl) =>
-      fetchRequest(newListUrl)).then((newList) => {
+      getRequest(newListUrl)).then((newList) => {
         dispatch(setShoppingList(newList));
         setProducts([]);
         navigate(`/list/${newList.id}`)
