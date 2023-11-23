@@ -5,7 +5,7 @@ import { useState } from "react";
 import styles from "styles/ProductTable.module.css";
 
 
-const Product = ({ product, handleUpdate, handleRemove }) => {
+const ProductRow = ({ product, handleUpdate, handleRemove }) => {
   const [showEdit, setShowEdit] = useState(false);
 
   if (showEdit) {
@@ -32,4 +32,4 @@ const Product = ({ product, handleUpdate, handleRemove }) => {
 }
 
 
-export default Product;
+export default ProductRow;

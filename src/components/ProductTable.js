@@ -1,5 +1,5 @@
 import EditProductRow from "components/EditProductRow";
-import Product from "components/Product";
+import ProductRow from "components/ProductRow";
 import styles from "styles/ProductTable.module.css";
 import { createRequest, deleteRequest, fetchRequest, updateRequest } from "util/api";
 
@@ -63,7 +63,7 @@ const ProductTable = ({ products, setProducts, createProductUrl }) => {
       </thead>
       <tbody>
         {products.map((product, index) => (
-          <Product
+          <ProductRow
             key={index}
             product={product}
             handleRemove={() => handleRemoveProduct(index, product?._links?.delete?.href)}
