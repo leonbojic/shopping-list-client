@@ -1,16 +1,7 @@
 import styles from "styles/ProductTable.module.css"
 
-const Product = ({ url }) => {
+const Product = ({ product }) => {
 
-  //useEffect
-  //fetchProduct
-
-  const product = {
-    "name": "chocolate",
-    "price": 150,
-    "amount": 2,
-    "category": "GROCERIES",
-  }
 
   return (
     <tr>

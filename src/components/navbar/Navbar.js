@@ -8,6 +8,7 @@ import { setShoppingList } from "redux/shoppingListsSlice";
 import { setCreateList } from "redux/linksSlice";
 import { useNavigate } from "react-router-dom";
 
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,7 +40,6 @@ const Navbar = () => {
       }}>
         Create
       </button>
-
 
       {Object.values(lists)?.map((sl, index) => (
         <NavbarShoppingList key={"ShoppingList:" + index} shoppingList={sl} />

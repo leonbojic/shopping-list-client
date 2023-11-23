@@ -27,6 +27,16 @@ const NewProduct = ({ product, updateProduct, removeProduct }) => {
           <option value="OTHER">Other</option>
         </select>
       </td>
+
+      <td>
+        <input
+          type="text"
+          pattern="[0-9]*"
+          inputMode="numeric"
+          value={product.price}
+          onChange={(event) => handleInputChange('price', event.target.value)}
+        />
+      </td>
       <td>
         <input
           type="number"
@@ -37,15 +47,6 @@ const NewProduct = ({ product, updateProduct, removeProduct }) => {
               handleInputChange('amount', newValue);
             }
           }}
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          pattern="[0-9]*"
-          inputMode="numeric"
-          value={product.price}
-          onChange={(event) => handleInputChange('price', event.target.value)}
         />
       </td>
       <td>{(product.amount * product.price / 100).toFixed(2)} $</td>

@@ -18,32 +18,32 @@ const ShoppingList = () => {
     }
   });
 
-  const [products, setProducts] = useState([1,2,3]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async(url) =>{
-      try{
+    const fetchProducts = async (url) => {
+      try {
         const response = await axios.get(url, getAuthConfig());
-        console.log("products",response.data);
 
-      }catch(error){
+        const data = response.data?._embedded?.productOutputList;
+        data && setProducts(data);
+      } catch (error) {
         console.error(error);
       }
     }
 
-    //shoppingList?.links?.products?.href && fetchProducts(shoppingList.links.products.href);
+    shoppingList?.links?.products?.href && fetchProducts(shoppingList.links.products.href);
   }, [shoppingList])
 
-  if (shoppingList) {
-    return (
-      <div className={styles.shoppingList}>
-        <h4>{shoppingList.name}</h4>
 
-        <ProductTable products={products} />
+  return (
+    <div className={styles.shoppingList}>
+      <h4>{shoppingList?.name}</h4>
 
-      </div>
-    )
-  }
+      <ProductTable products={products} />
+
+    </div>
+  )
 }
 
 

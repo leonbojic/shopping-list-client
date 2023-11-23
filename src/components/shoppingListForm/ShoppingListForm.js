@@ -1,13 +1,15 @@
 import axios from "axios";
 import NewProduct from "components/newProduct/NewProduct";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setShoppingList } from "redux/shoppingListsSlice";
 import tableStyles from "styles/ProductTable.module.css";
 import listStyles from "styles/ShoppingList.module.css";
-import { getAuthConfig } from "util/token";
+import { createShoppingList, fetchShoppingList } from "util/shoppingList";
 
 
 const ShoppingListForm = () => {
+  const dispatch = useDispatch();
   const createUrl = useSelector((state) => state.links.createList);
 
   const [name, setName] = useState("");
@@ -34,21 +36,12 @@ const ShoppingListForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (createUrl) {
-      try {
-        const productsWithoutIds = products.map(({ id, ...rest }) => rest);
 
-        const response = await axios.post(
-          createUrl,
-          { name: name, products: productsWithoutIds },
-          getAuthConfig()
-        );
-
-        console.log("Response:", response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
+    createShoppingList(
+      createUrl,
+      { name: name, products: products.map(({ id, ...rest }) => rest) }
+    ).then((newListUrl) =>
+      fetchShoppingList(newListUrl)).then((newList) => dispatch(setShoppingList(newList)));
   };
 
   return (
