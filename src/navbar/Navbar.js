@@ -25,8 +25,6 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <h4>Shopping lists:</h4>
-
       {Object.values(lists)?.map((shoppingList) => (
         <li key={shoppingList.id}
           className={styles.shoppingList}

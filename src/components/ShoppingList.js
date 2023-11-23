@@ -20,7 +20,8 @@ const ShoppingList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    shoppingList?.links?.products?.href && fetchRequest(shoppingList.links.products.href);
+    shoppingList?.links?.products?.href && fetchRequest(shoppingList.links.products.href).then((data) =>
+      data?._embedded?.productOutputList && setProducts(data?._embedded?.productOutputList));
   }, [shoppingList])
 
 
