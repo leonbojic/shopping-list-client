@@ -61,7 +61,7 @@ const Analytics = () => {
             ))}
             <tr>
               <td>TOTAL</td>
-              <td>{(total / 2).toFixed(2)}$</td>
+              <td>{(total / 100).toFixed(2)}$</td>
             </tr>
           </tbody>
         </table>

@@ -55,10 +55,11 @@ const Navbar = () => {
         return (
           <React.Fragment key={index}>
             {renderStats &&
-              <div className={styles.stats} >
-                {getMonth(date.getMonth() + 1)}/{date.getFullYear()}
+              <div className={styles.stats} onClick={() => navigate(`/stats/${date.getFullYear()}/${date.getMonth() + 1}`)}>
+                <div className={styles.date}>
+                  {getMonth(date.getMonth() + 1)}/{date.getFullYear()}
+                </div>
                 < BigIconButton
-                  handleClick={() => navigate(`/stats/${date.getFullYear()}/${date.getMonth() + 1}`)}
                   icon={pieIcon}
                 />
               </div>

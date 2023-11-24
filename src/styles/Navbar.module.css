@@ -9,14 +9,25 @@
 }
 
 .stats{
+  margin: 2px 0px;
+
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding-top: 0px;
-  margin-left: auto;
-  margin-right: 14px;
+  width: 20ch;
 
+  padding-top: 0px;
+  
   font-weight: bold;
+}
+
+.stats:hover{
+  cursor: pointer;
+  background-color: white;
+}
+
+.date{
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .shoppingList{
@@ -36,3 +47,4 @@
 .shoppingList:active{
   background-color: antiquewhite;
 }
+

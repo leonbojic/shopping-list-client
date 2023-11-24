@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       removeToken();
       setIsAuthenticated(false);
-      console.error(error);
+      console.error("Token expired, signing out.");
     }
   }
 
