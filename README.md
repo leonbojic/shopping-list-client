@@ -10,20 +10,20 @@ Before running the application, ensure you have the following:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/shopping-list-client.git
+git clone https://github.com/leonbojic/shopping-list-client.git
 cd shopping-list-client
+```
+### 3. Install Dependecies
+```bash
+npm install
 ```
 ### 2. Build the Application
 ```bash
 npm run build
 ```
-### 3. Install Dependecies
-```bash
-cd build
-npm install -g serve
-```
 ### 4. Serve the Build Application
 ```bash
+npm install -g serve
 serve -s build
 ```
 You can access the app by navigating to http://localhost:3000 in your web browser.
