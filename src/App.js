@@ -19,7 +19,7 @@ function App() {
     } else {
       setIsAuthenticated(false);
     }
-  }, [])
+  }, [setIsAuthenticated,validateToken])
 
   return (
     <Router>

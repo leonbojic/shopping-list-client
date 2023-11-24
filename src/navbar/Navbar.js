@@ -25,7 +25,7 @@ const Navbar = () => {
       dispatch(setCreateList(data?._links?.create?.href));
       data?._embedded?.shoppingListOutputList?.forEach((list) => dispatch(setShoppingList(list)))
     })
-  }, [])
+  }, [dispatch])
 
   let lastDate;
 

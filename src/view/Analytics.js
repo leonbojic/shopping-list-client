@@ -9,8 +9,6 @@ import tableStyles from "styles/ProductTable.module.css"
 const Analytics = () => {
   const { year, month } = useParams();
   const [expenses, setExpenses] = useState(null);
-  const [totalExpeneses, setTotalExpenses] = useState(0);
-
 
   useEffect(() => {
     let url = `${process.env.REACT_APP_SERVER_URL}/api/stats`;

@@ -18,7 +18,7 @@ const AuthLayout = () => {
 
   useEffect(() => {
     isAuthenticated && navigate("/list");
-  }, [isAuthenticated])
+  }, [isAuthenticated, navigate])
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -1,6 +1,6 @@
 import Charts from "components/Charts";
 import ProductTable from "components/ProductTable";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setShoppingList } from "redux/shoppingListsSlice";

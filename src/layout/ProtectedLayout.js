@@ -14,7 +14,7 @@ const ProtectedLayout = ({ children }) => {
 
   useEffect(() => {
     isAuthenticated === false && navigate("/auth")
-  }, [isAuthenticated])
+  }, [isAuthenticated, navigate])
 
   return (
     <div className={styles.layout}>
