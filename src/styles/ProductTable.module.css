@@ -7,7 +7,7 @@
 
 
 th{
-  border: 1px solid black;; 
+  border: 1px solid black; 
 }
 
 td {
@@ -25,4 +25,11 @@ td input{
 
 .buttons{
   display: flex;
+}
+
+.addNewProduct{
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
 }

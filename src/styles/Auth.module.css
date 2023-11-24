@@ -60,3 +60,9 @@
 
   font-size: 12px;
 }
+
+.errorMessage{
+  color: rgb(227, 66, 66);
+
+  font-size: 12px;
+}

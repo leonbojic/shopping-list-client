@@ -8,7 +8,6 @@ import styles from "styles/Chart.module.css";
 Chart.register(CategoryScale);
 
 const Charts = ({ expenses }) => {
-
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
@@ -16,8 +15,8 @@ const Charts = ({ expenses }) => {
       labels: Object.keys(expenses),
       datasets: [
         {
-          label: "Money Spent ",
-          data: Object.values(expenses),
+          label: "Money Spent ($) ",
+          data: Object.values(expenses).map((exp)=>exp/100),
           backgroundColor: [
             "rgb(255, 99, 71) ",
             "rgb(65, 105, 225) ",

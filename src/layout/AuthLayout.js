@@ -14,6 +14,7 @@ const AuthLayout = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     isAuthenticated && navigate("/list");
@@ -24,8 +25,8 @@ const AuthLayout = () => {
 
     if (username?.length > 0 && username.length < 20 && password?.length > 0 && password.length < 20) {
       showLogin
-        ? login(username, password, setIsAuthenticated)
-        : register(username, password, setShowLogin);
+        ? login(username, password, setIsAuthenticated, setErrorMessage)
+        : register(username, password, setShowLogin, setErrorMessage);
     }
   }
 
@@ -37,6 +38,8 @@ const AuthLayout = () => {
         <AuthForm username={username} setUsername={setUsername} password={password} setPassword={setPassword} handleSubmit={handleSubmit}
           text={showLogin ? "Login" : "Register"}
         />
+
+        <label className={styles.errorMessage}>{errorMessage && errorMessage}</label>
         <label className={styles.noAcc}>
           {showLogin ? "Don't have and account: " : "Already have an account: "}
 
@@ -45,6 +48,7 @@ const AuthLayout = () => {
               event.preventDefault();
               setPassword("");
               setUsername("");
+              setErrorMessage(null);
               setShowLogin(!showLogin);
             }}
             className={buttonStyles.transparent}

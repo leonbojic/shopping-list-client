@@ -2,23 +2,26 @@ import axios from "axios";
 import { getAuthConfig, storeToken } from "./token";
 
 
-export const login = async (username, password, setIsAuthenticated) => {
+export const login = async (username, password, setIsAuthenticated, setErrorMessage) => {
   try {
     const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/auth/login`, { username, password });
     console.log("Logged in");
     storeToken(response.data);
     setIsAuthenticated(true);
   } catch (error) {
+    setErrorMessage("Please enter valid user credentials");
     console.error(error);
   }
 }
 
-export const register = async (username, password, setShowLogin) => {
+export const register = async (username, password, setShowLogin, setErrorMessage) => {
   try {
     const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/auth/register`, { username, password });
     console.log(response.data)
     setShowLogin(true);
+    setErrorMessage(null);
   } catch (error) {
+    setErrorMessage("Please enter valid user credentials");
     console.error(error);
   }
 }

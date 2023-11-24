@@ -71,6 +71,11 @@ const ProductTable = ({ products, setProducts, createProductUrl }) => {
             handleUpdate={(updatedProduct) => handleUpdateProduct(index, updatedProduct, product?._links?.update?.href)}
           />
         ))}
+        <tr>
+          <td colSpan="6" className={styles.centeredCell}>
+            <div className={styles.addNewProduct}>Add a new product:</div>
+          </td>
+        </tr>
         <EditProductRow setProduct={handleAddProduct} />
 
       </tbody>

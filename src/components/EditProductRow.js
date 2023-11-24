@@ -28,12 +28,13 @@ const EditProductRow = ({ setProduct, removeProduct, product, cancelEdit }) => {
     <tr onKeyDown={handleKeyDown}>
       <td>
         <input
+          placeholder="enter product name"
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
       </td>
-      <td width={{minWidth:"160px"}}>
+      <td width={{ minWidth: "160px" }}>
         <select
           value={category}
           onChange={(event) => setCategory(event.target.value)}
